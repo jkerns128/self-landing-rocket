@@ -294,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.092363134, y: -0, z: -0, w: 0.9957254}
-  m_LocalPosition: {x: 0, y: 46, z: -142}
+  m_LocalPosition: {x: 0, y: 70.1, z: -199.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -412,15 +412,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.312731
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 200
+      value: 207.96744
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.689328
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalRotation.w
@@ -467,6 +467,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8400326418284660397, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400326418284660397, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: NoiseModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -477,6 +481,14 @@ PrefabInstance:
     - target: {fileID: 8400326418284660397, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: EmissionModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400326418284660397, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400326418284660397, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}

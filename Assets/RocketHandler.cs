@@ -10,7 +10,7 @@ public class RocketHandler : MonoBehaviour
     Transform transform;
     Vector3 velocity;
     Quaternion rotation;
-    double distance;
+    double thrustThreshold;
     GameObject particleSys;
     int usagetimer;
 
@@ -31,16 +31,19 @@ public class RocketHandler : MonoBehaviour
         velocity = rigidbody.velocity;
         rotation = rigidbody.rotation;
         /*
-            Can move proportional to its velocity to simulate using aerodynamics
+            Can move proportional to its velocity when not vertical to simulate aerodynamics
 
             PID control to get it over landing space, simple math for negating velocity on landing pad.
         */
         
         
-        distance = Mathf.Pow(velocity.y,2) / (2* (rocketThrust/rigidbody.mass));
-        if(transform.position.y - 7.5 < distance && fuel > 0){
+
+
+        /*  Landing Control */
+        thrustThreshold = Mathf.Pow(velocity.y,2) / (2* (rocketThrust/rigidbody.mass));
+        if(transform.position.y - 7.5 < thrustThreshold && fuel > 0){
             fuel = fuel - 1;
-            rigidbody.AddRelativeForce(new Vector3(0,rocketThrust,0));
+            rigidbody.AddRelativeForce(transform.up*rocketThrust);
             usagetimer = 100;
             particleSys.SetActive(true);
         } else {
