@@ -294,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.092363134, y: -0, z: -0, w: 0.9957254}
-  m_LocalPosition: {x: 0, y: 70.1, z: -199.6}
+  m_LocalPosition: {x: 0, y: 626, z: -918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,15 +416,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 207.96744
+      value: 40000
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.689328
+      value: -12.914001
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9396927
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalRotation.x
@@ -436,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.3420201
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -448,11 +448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528517, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528521, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: fuel
-      value: 300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8400326417113528526, guid: 325dc610bff54ae4996c08b58fa03884, type: 3}
       propertyPath: m_Drag

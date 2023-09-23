@@ -5,11 +5,11 @@ using UnityEngine;
 public class RocketHandler : MonoBehaviour
 {
     public int rocketThrust = 445000;
-    public int fuel = 100;
+    public int fuel = 1000;
     Rigidbody rigidbody;
     Transform transform;
     Vector3 velocity;
-    Quaternion rotation;
+    Vector3 rocketRotation;
     double thrustThreshold;
     GameObject particleSys;
     int usagetimer;
@@ -29,11 +29,28 @@ public class RocketHandler : MonoBehaviour
     void Update()
     {
         velocity = rigidbody.velocity;
-        rotation = rigidbody.rotation;
+        rocketRotation = transform.up;
         /*
-            Can move proportional to its velocity when not vertical to simulate aerodynamics
+            Rocket aerodynamics physics
+        */
+        Vector3 rocketLine = rocketRotation;
+        Vector3 cross = Vector3.Cross(velocity, rocketLine);   
+        float angle = Vector3.SignedAngle(velocity, rocketLine, cross);
+        Vector3 dragForce;
+        
+        //Flips "up" direction for rocket to simplify calculation of drag
+        if (Mathf.Abs(angle) > 90){
+            rocketLine *= -1;
+            angle = Vector3.SignedAngle(velocity, rocketLine, cross);
+        }
+        dragForce = Quaternion.AngleAxis(Mathf.Sign(angle)*(90-Mathf.Abs(angle)), rocketLine) * velocity;
+        dragForce = dragForce.normalized * Mathf.Sqrt(velocity.magnitude);
 
-            PID control to get it over landing space, simple math for negating velocity on landing pad.
+        rigidbody.AddRelativeForce(dragForce);
+
+
+        /*
+            Uses turning to glide over the landing space, simple math for negating velocity on landing pad.
         */
         
         
@@ -43,7 +60,8 @@ public class RocketHandler : MonoBehaviour
         thrustThreshold = Mathf.Pow(velocity.y,2) / (2* (rocketThrust/rigidbody.mass));
         if(transform.position.y - 7.5 < thrustThreshold && fuel > 0){
             fuel = fuel - 1;
-            rigidbody.AddRelativeForce(transform.up*rocketThrust);
+            rigidbody.AddRelativeForce(rocketRotation*rocketThrust);
+        //Particle control from here down (visual only)
             usagetimer = 100;
             particleSys.SetActive(true);
         } else {
@@ -55,11 +73,10 @@ public class RocketHandler : MonoBehaviour
         }
     }
 
+    // Destroy Rocket on high impact speed
     void OnCollisionEnter(Collision collision)
     {
-        
-        // Destroy Rocket on high impact speed
-        if (collision.relativeVelocity.magnitude > 15)
+        if (collision.relativeVelocity.magnitude > 3)
             Destroy(gameObject);
     }
 
